@@ -18,7 +18,7 @@ router.get('/drones', (req, res, next) => {
 });
 
 router.get('/drones/create', (req, res, next) => {
-  res.render('drones/create-form.hbs')
+  res.render('./drones/create-form.hbs')
 });
 
 router.post('/drones/create', (req, res, next) => {
@@ -36,7 +36,8 @@ router.post('/drones/create', (req, res, next) => {
       res.redirect('/drones')
     })
     .catch(()=>{
-      console.log('Something went wrong while adding')
+      console.error();
+      res.render('./drones/create-form.hbs')
     })
 
 });
@@ -47,7 +48,7 @@ router.get('/drones/:id/edit', (req, res, next) => {
 
   DroneModel.findById(id)
     .then ((drones)=>{
-      res.render('drones/update-form.hbs', {drones})
+      res.render('./drones/update-form.hbs', {drones})
     })
     .catch(()=>{
       console.log('Updating failed')
@@ -71,7 +72,7 @@ router.post('/drones/:id/edit', (req, res, next) => {
       res.redirect('/drones')
     })
     .catch(()=>{
-      console.log('Something went wrong while updating')
+      console.log('Something went wrong while editing')
     })
 
 });

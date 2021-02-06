@@ -1,36 +1,31 @@
 <h2>Available drones</h2>
 
+<div class="mygroupcards">
+
 
 {{#each drones}}
 
-    <div class="container-fluid">
 
-        <div class="card bg-light m-5" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <h6 class="card-subtitle m-3">{{this.name}}</h6>
-
-                <h5 class="card-title">Propellers</h5>
-                <h6 class="card-subtitle m-3">{{this.propellers}}</h6>
-
-                <h5 class="card-title">Speed</h5>
-                <h6 class="card-subtitle m-3">{{this.maxSpeed}}</h6>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col"><a href="/drones/{{this._id}}/edit">Edit</a></div>
-                        <div class="col">                    
-                            <form method="POST" action="/drones/{{this._id}}/delete">
-                                <button type="submit" class="btn btn-primary">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                    
+    <div class="mycard">
+        <h5>Name :</h5>
+        <p>{{this.name}}</p>
+        <h5>Propellers :</h5>
+        <p>{{this.propellers}}</p>
+        <h5>Speed :</h5>
+        <p>{{this.maxSpeed}}</p>
+        <div class="container">
+            <div class="row">
+                <div class="col"><a href="/drones/{{this._id}}/edit">Edit</a>
                 </div>
-
-            </div>
+                <div class="col">                    
+                     <form method="POST" action="/drones/{{this._id}}/delete">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </div>
+            </div> 
         </div>
-
     </div>
 
 {{/each}}
+
+</div>
